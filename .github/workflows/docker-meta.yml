@@ -1,0 +1,33 @@
+name: Docker Image Extract metadata CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  REGISTRY: hub.oepkgs.net
+  IMAGE_NAME: oerv-ci/gitee-go-agent
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ vars.DOCKERHUB_OEPKGS_OERVCI_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_OEPKGS_OERVCI_TOKEN }}
+     
+    - name: Extract metadata (tags, labels) for Docker
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+    
+    - name:  echo metadata message
+      run: echo "tags,labels ${{ steps.meta.outputs.tags }},${{ steps.meta.outputs.labels }}"
