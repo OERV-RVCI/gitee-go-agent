@@ -1,6 +1,6 @@
-FROM --platform=linux/riscv64 hub.oepkgs.net/oerv-ci/openeuler:24.03-lts-sp1
+FROM hub.oepkgs.net/oerv-ci/openeuler:24.03-lts-sp1
 
-ARG GITEE_GO_WORKSPACE=/srv/gitee-go
+ARG GITEE_GO_WORKSPACE="/srv/gitee-go"
 ARG FILE_DOWNLOAD_URI="https://gitee-agent-shell.gz.bcebos.com" 
 ARG AGENT_DOWNLOAD_PATH="/agent/agent.jar" 
 
