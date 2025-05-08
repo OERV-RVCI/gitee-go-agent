@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: hub.oepkgs.net
-  IMAGE_NAME: oerv-ci/gitee-go-agent
+  IMAGE_NAME: oerv-ci/openeuler
 jobs:
 
   build:
