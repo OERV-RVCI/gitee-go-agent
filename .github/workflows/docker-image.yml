@@ -41,4 +41,4 @@ jobs:
         no-cache: true
         push: false
         tags: ${{ env.IMAGE_NAME }}:riscv64,${{ env.IMAGE_NAME }}:latest
-        platform: linux/riscv64
+        platforms: linux/riscv64
