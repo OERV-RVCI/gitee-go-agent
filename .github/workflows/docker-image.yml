@@ -24,12 +24,6 @@ jobs:
         username: ${{ vars.DOCKERHUB_OEPKGS_OERVCI_USERNAME }}
         password: ${{ secrets.DOCKERHUB_OEPKGS_OERVCI_TOKEN }}
       
-    - name: Extract metadata (tags, labels) for Docker
-      id: meta
-      uses: docker/metadata-action@v5
-      with:
-        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
 
@@ -46,3 +40,4 @@ jobs:
         file: ./Dockerfile
         no-cache: true
         push: false
+        tags: ${{ env.IMAGE_NAME }}:riscv64,${{ env.IMAGE_NAME }}:latest
