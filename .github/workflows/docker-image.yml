@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 env:
   REGISTRY: hub.oepkgs.net
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: oerv-ci/gitee-go-agent
 jobs:
 
   build:
